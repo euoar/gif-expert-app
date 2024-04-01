@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifItem component tests must mutch the snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Magnum PI"
+      src="https://media0.giphy.com/media/8Bl2AfBSAkzCc8dqQQ/giphy.gif?cid=1c21bd180zimt4ltf9ky2kifk7tpewr3el7ikxfwjhsm1bd5&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+    />
+    <p>
+      Magnum PI
+    </p>
+  </div>
+</div>
+`;
