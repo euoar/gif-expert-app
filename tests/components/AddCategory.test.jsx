@@ -11,17 +11,38 @@ describe('AddCategory tests', () => {
 
   });
 
-  test('must call onNewCategory if the inputs has a value', () => {
+  test('must call onNewCategory if the input has a value', () => {
     const inputValue = 'Saitama';
-    render(<AddCategory onNewCategory={() => { }} />);
+    const onNewCategory = jest.fn();
+    render(<AddCategory onNewCategory={onNewCategory} />);
 
     const input = screen.getByRole('textbox');
     const form = screen.getByRole('form');
-    fireEvent.input(input, { target: { value: 'Saitama' } });
+    fireEvent.input(input, { target: { value: inputValue } });
 
     fireEvent.submit(form);
 
     expect(input.value).toBe('');
+    expect(onNewCategory).toHaveBeenCalled();
+    expect(onNewCategory).toHaveBeenCalledTimes(1);
+    expect(onNewCategory).toHaveBeenCalledWith(inputValue);
+
+  });
+
+  test('must not call onNewCategory if the input doesn\'t have a value', () => {
+    const inputValue = '';
+    const onNewCategory = jest.fn();
+    render(<AddCategory onNewCategory={onNewCategory} />);
+
+    const input = screen.getByRole('textbox');
+    const form = screen.getByRole('form');
+    fireEvent.input(input, { target: { value: inputValue } });
+
+    fireEvent.submit(form);
+
+    expect(input.value).toBe('');
+    expect(onNewCategory).toHaveBeenCalledTimes(0);
+    expect(onNewCategory).not.toHaveBeenCalled();
 
   });
 })
