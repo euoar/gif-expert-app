@@ -1,3 +1,3 @@
 # GifExpertApp 
 
-React sample app.
+React exercise for udemy course "React: De cero a experto (Hooks y MERN)."
